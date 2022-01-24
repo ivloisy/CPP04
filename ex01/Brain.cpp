@@ -6,37 +6,36 @@
 /*   By: ivloisy <ivloisy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 20:10:24 by ivloisy           #+#    #+#             */
-/*   Updated: 2022/01/24 02:13:04 by ivloisy          ###   ########.fr       */
+/*   Updated: 2022/01/24 21:14:07 by ivloisy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Brain.hpp"
 
-#include <sstream>
-
 Brain::Brain()
 {
+	static std::string charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+
 	for (int i = 0; i < 100; i++)
 	{
-		std::ostringstream	number_str;
-	
-		number_str << i + 1;
-		ideas[i] = "Idea " + number_str.str();
+		ideas[i].resize(10);
+		for (int j = 0; j < 10; j++)
+			ideas[i][j] = charset[rand() % charset.length()];
 	}
-	std::cout	<< "Brain constructor called" << std::endl;
-	return ;
+	std::cout << "Brain constructor called" << std::endl;
+	return;
 }
 
 Brain::~Brain()
 {
-	std::cout	<< "Brain destructor called" << std::endl;
+	std::cout << "Brain destructor called" << std::endl;
 	return ;
 }
 
 Brain::Brain(Brain const &src)
 {
 	*this = src;
-	std::cout	<< "Brain copy constructor called" << std::endl;
+	std::cout << "Brain copy constructor called" << std::endl;
 	return ;
 }
 
@@ -48,9 +47,9 @@ Brain	&Brain::operator=(Brain const &rhs)
 	return *this;
 }
 
-void	Brain::getIdeas() const
+void	Brain::printIdeas() const
 {
-	std::cout << "{" << std::endl;
+	std::cout << this << "{" << std::endl;
 	for (int i = 0; i < 100; i++)
 		std::cout << "\t" << this->ideas[i] << std::endl;
 	std::cout << "}" << std::endl;

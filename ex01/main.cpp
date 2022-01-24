@@ -6,7 +6,7 @@
 /*   By: ivloisy <ivloisy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 16:43:59 by ivloisy           #+#    #+#             */
-/*   Updated: 2022/01/24 11:59:27 by ivloisy          ###   ########.fr       */
+/*   Updated: 2022/01/24 21:11:21 by ivloisy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,16 +41,33 @@ int	main()
 	beta->makeSound();
 	delete beta;
 	delete k; */
-	Animal	*cat = new Cat();
+	Animal	*meta[6];
+	for (int i = 0; i < 6; i++)
+	{
+		if (i % 2)
+			meta[i] = new Cat();
+		else 
+			meta[i] = new Dog();
+	}
+	for (int i = 0; i < 6; i++)
+		meta[i]->makeSound();
+	for (int i = 0; i < 6; i++)
+		delete meta[i];
 
-	cat->makeSound();
-	cat->printIdeas();
+	srand(time(NULL));
+	Cat	cat;
+	{
+		Cat	copy = cat;
+		copy.getBrain()->printIdeas();
+	}
+	cat.getBrain()->printIdeas();
 
-	Animal	*chat(cat);
-	
-	chat->printIdeas();
-
-	delete cat;
+	Dog	dog;
+	{
+		Dog	copy = dog;
+		copy.getBrain()->printIdeas();
+	}
+	dog.getBrain()->printIdeas();
 	
 	return 0;
 }

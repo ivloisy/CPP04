@@ -6,7 +6,7 @@
 /*   By: ivloisy <ivloisy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 18:48:26 by ivloisy           #+#    #+#             */
-/*   Updated: 2022/01/24 11:59:50 by ivloisy          ###   ########.fr       */
+/*   Updated: 2022/01/23 18:11:37 by ivloisy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ class Animal
 		Animal			&operator=(Animal const &rhs);
 		std::string		getType() const;
 		virtual void	makeSound() const;
-		virtual void	printIdeas() const = 0;
 };
 
 #endif

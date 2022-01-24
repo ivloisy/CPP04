@@ -6,7 +6,7 @@
 /*   By: ivloisy <ivloisy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 17:08:55 by ivloisy           #+#    #+#             */
-/*   Updated: 2022/01/24 02:00:08 by ivloisy          ###   ########.fr       */
+/*   Updated: 2022/01/24 18:07:35 by ivloisy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class Cat : public Animal
 		Cat(Cat const &src);
 		Cat				&operator=(Cat const &rhs);
 		virtual void	makeSound() const;
-		void			printIdeas() const;
+		Brain			*getBrain() const;
 };
 
 #endif
