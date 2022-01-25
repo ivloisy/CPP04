@@ -1,31 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cure.hpp                                            :+:      :+:    :+:   */
+/*   Character.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ivloisy <ivloisy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/25 15:00:23 by ivloisy           #+#    #+#             */
-/*   Updated: 2022/01/25 15:10:35 by ivloisy          ###   ########.fr       */
+/*   Created: 2022/01/25 17:06:24 by ivloisy           #+#    #+#             */
+/*   Updated: 2022/01/25 23:41:24 by ivloisy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CURE_HPP
-# define CURE_HPP
+#ifndef CHARACTER_HPP
+# define CHARACTER_HPP
 
+# include "ICharacter.hpp"
 # include "AMateria.hpp"
 
-class Cure : public AMateria
+class Character : public ICharacter
 {
 	private:
+		std::string	_name;
+		AMateria	*_slot[4];
 
 	public:
-		Cure();
-		virtual ~Cure();
-		Cure(Cure const &src);
-		Cure				&operator=(Cure const &rhs);
-		virtual AMateria	*clone() const;
-		virtual void		use(ICharacter &target);
+		Character();
+		virtual ~Character();
+		Character(Character const &src);
+		Character			&operator=(Character const &rhs);
+		Character(std::string const name);
+		void				setName(std::string const name);
+		std::string const	&getName() const;
+		void				equip(AMateria *m);
 };
 
 #endif

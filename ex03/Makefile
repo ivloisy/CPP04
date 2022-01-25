@@ -6,7 +6,7 @@
 #    By: ivloisy <ivloisy@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/31 12:03:12 by ivloisy           #+#    #+#              #
-#    Updated: 2022/01/25 15:32:36 by ivloisy          ###   ########.fr        #
+#    Updated: 2022/01/25 22:55:15 by ivloisy          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,11 +14,11 @@ NAME = Interface
 
 CC = c++
 
-FLAG = -Wall -Wextra -Werror -Wshadow -Wno-shadow -std=c++98
+FLAG = -Wall -Wextra -Werror -Wshadow -Wno-shadow -std=c++98# -g -fsanitize=address
 
-SRC = main.cpp AMateria.cpp Ice.cpp Cure.cpp
+SRC = main.cpp AMateria.cpp Ice.cpp Cure.cpp Character.cpp
 
-HDR = AMateria.hpp Ice.hpp Cure.hpp
+HDR = AMateria.hpp Ice.hpp Cure.hpp ICharacter.hpp Character.hpp
 
 OBJ = $(OBJDIR)/*.o
 

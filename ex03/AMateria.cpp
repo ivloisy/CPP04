@@ -6,7 +6,7 @@
 /*   By: ivloisy <ivloisy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 13:51:31 by ivloisy           #+#    #+#             */
-/*   Updated: 2022/01/25 15:56:27 by ivloisy          ###   ########.fr       */
+/*   Updated: 2022/01/25 18:07:42 by ivloisy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,10 @@ AMateria	&AMateria::operator=(AMateria const &rhs)
 std::string const	&AMateria::getType() const
 {
 	return this->_type;
+}
+
+void	AMateria::use(ICharacter &target)
+{
+	std::cout << "* does nothing at " << target.getName() << " *" << std::endl;
+	return ;
 }
