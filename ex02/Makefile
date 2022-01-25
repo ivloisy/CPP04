@@ -6,19 +6,19 @@
 #    By: ivloisy <ivloisy@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/31 12:03:12 by ivloisy           #+#    #+#              #
-#    Updated: 2022/01/25 13:44:15 by ivloisy          ###   ########.fr        #
+#    Updated: 2022/01/25 13:31:33 by ivloisy          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Brain
+NAME = AAnimal
 
 CC = c++
 
 FLAG = -Wall -Wextra -Werror -Wshadow -Wno-shadow -std=c++98
 
-SRC = main.cpp Animal.cpp Dog.cpp Cat.cpp Brain.cpp
+SRC = main.cpp AAnimal.cpp Dog.cpp Cat.cpp Brain.cpp
 
-HDR = Animal.hpp Dog.hpp Cat.hpp Brain.hpp
+HDR = AAnimal.hpp Dog.hpp Cat.hpp Brain.hpp
 
 OBJ = $(OBJDIR)/*.o
 

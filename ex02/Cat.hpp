@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongWrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ivloisy <ivloisy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/21 18:48:26 by ivloisy           #+#    #+#             */
-/*   Updated: 2022/01/23 18:06:08 by ivloisy          ###   ########.fr       */
+/*   Created: 2022/01/23 17:08:55 by ivloisy           #+#    #+#             */
+/*   Updated: 2022/01/25 13:08:25 by ivloisy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGANIMAL_HPP
-# define WRONGANIMAL_HPP
+#ifndef CAT_HPP
+# define CAT_HPP
 
-# include <iostream>
+# include "AAnimal.hpp"
+# include "Brain.hpp"
 
-class WrongAnimal
+class Cat : public AAnimal
 {
 	private:
-
-	protected:
-		std::string	type;
+		Brain	*brain;
 
 	public:
-		WrongAnimal();
-		virtual ~WrongAnimal();
-		WrongAnimal(WrongAnimal const &src);
-		WrongAnimal	&operator=(WrongAnimal const &rhs);
-		std::string	getType() const;
-		void		makeSound() const;
+		Cat();
+		virtual ~Cat();
+		Cat(Cat const &src);
+		Cat				&operator=(Cat const &rhs);
+		virtual void	makeSound() const;
+		Brain			*getBrain() const;
 };
 
 #endif

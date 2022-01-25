@@ -1,46 +1,56 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongWrongCat.cpp                                       :+:      :+:    :+:   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ivloisy <ivloisy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 17:13:49 by ivloisy           #+#    #+#             */
-/*   Updated: 2022/01/23 18:08:30 by ivloisy          ###   ########.fr       */
+/*   Updated: 2022/01/25 13:06:49 by ivloisy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "WrongCat.hpp"
+#include "Dog.hpp"
 
-WrongCat::WrongCat() : WrongAnimal()
+Dog::Dog() : AAnimal()
 {
-	this->type = "WrongCat";
-	std::cout	<< "An WrongCat appears." << std::endl;
+	this->type = "Dog";
+	this->brain = new Brain();
+	std::cout	<< "An Dog appears." << std::endl;
 	return ;
 }
 
-WrongCat::~WrongCat()
+Dog::~Dog()
 {
-	std::cout	<< "The WrongCat disappears." << std::endl;
+	delete brain;
+	std::cout	<< "The Dog disappears." << std::endl;
 	return ;
 }
 
-WrongCat::WrongCat(WrongCat const &src) : WrongAnimal()
+Dog::Dog(Dog const &src) : AAnimal()
 {
 	*this = src;
-	std::cout	<< "An copy of the WrongCat appears." << std::endl;
+	std::cout	<< "An copy of the Dog appears." << std::endl;
 	return ;
 }
 
-WrongCat	&WrongCat::operator=(WrongCat const &rhs)
+Dog	&Dog::operator=(Dog const &rhs)
 {
 	if (this != &rhs)
+	{
 		this->type = rhs.getType();
+		this->brain = new Brain(*rhs.brain);
+	}
 	return *this;			
 }
 
-void	WrongCat::makeSound() const
+void	Dog::makeSound() const
 {
-	std::cout	<< "* MEOW *" << std::endl;
+	std::cout	<< "* WOW *" << std::endl;
 	return ;
+}
+
+Brain	*Dog::getBrain() const
+{
+	return this->brain;
 }

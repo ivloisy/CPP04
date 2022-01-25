@@ -1,50 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongWrongAnimal.cpp                                    :+:      :+:    :+:   */
+/*   AAnimal.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ivloisy <ivloisy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/21 18:54:34 by ivloisy           #+#    #+#             */
-/*   Updated: 2022/01/23 18:05:49 by ivloisy          ###   ########.fr       */
+/*   Created: 2022/01/25 13:01:19 by ivloisy           #+#    #+#             */
+/*   Updated: 2022/01/25 13:01:36 by ivloisy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "WrongAnimal.hpp"
+#include "AAnimal.hpp"
 
-WrongAnimal::WrongAnimal()
+AAnimal::AAnimal()
 {
-	std::cout	<< "An WrongAnimal appears." << std::endl;
+	std::cout	<< "An AAnimal appears." << std::endl;
 	return ;
 }
 
-WrongAnimal::~WrongAnimal()
+AAnimal::~AAnimal()
 {
-	std::cout	<< "The WrongAnimal disappears." << std::endl;
+	std::cout	<< "The AAnimal disappears." << std::endl;
 	return ;
 }
 
-WrongAnimal::WrongAnimal(WrongAnimal const &src)
+AAnimal::AAnimal(AAnimal const &src)
 {
 	*this = src;
-	std::cout	<< "An copy of the WrongAnimal appears." << std::endl;
+	std::cout	<< "An copy of the AAnimal appears." << std::endl;
 	return ;
 }
 
-WrongAnimal	&WrongAnimal::operator=(WrongAnimal const &rhs)
+AAnimal	&AAnimal::operator=(AAnimal const &rhs)
 {
 	if (this != &rhs)
 		this->type = rhs.getType();
-	return *this;
+	return *this;			
 }
 
-std::string	WrongAnimal::getType() const
+std::string	AAnimal::getType() const
 {
 	return this->type;
-}
-
-void	WrongAnimal::makeSound() const
-{
-	std::cout	<< "* GRRRrrr... *" << std::endl;
-	return ;
 }
