@@ -6,7 +6,7 @@
 /*   By: ivloisy <ivloisy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 17:16:02 by ivloisy           #+#    #+#             */
-/*   Updated: 2022/01/25 23:41:34 by ivloisy          ###   ########.fr       */
+/*   Updated: 2022/01/26 03:24:13 by ivloisy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,8 +79,31 @@ void	Character::equip(AMateria *m)
 	for (int i = 0; i < 4; i++)
 	{
 		if (_slot[i] == NULL)
+		{
 			_slot[i] = m;
+			std::cout << this->getName() << " takes " << m->getType() << std::endl;
+			return ;
+		}
 	}
-	
+	delete m;
+	std::cout << "Iventory is full" << std::endl;
+	return ;
+}
+
+void	Character::unequip(int idx)
+{
+	if (idx >= 0 && idx < 4)
+	{
+		if (_slot[idx] != NULL)
+			std::cout << this->getName() << " left " << _slot[idx]->getType() << " on the floor" << std::endl;
+		_slot[idx] = NULL;
+	}
+	return ;
+}
+
+void	Character::use(int idx, ICharacter &target)
+{
+	if (idx >= 0 && idx < 4 && _slot[idx])
+		_slot[idx]->use(target);
 	return ;
 }

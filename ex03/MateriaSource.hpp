@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ICharacter.hpp                                     :+:      :+:    :+:   */
+/*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ivloisy <ivloisy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/25 16:55:30 by ivloisy           #+#    #+#             */
-/*   Updated: 2022/01/26 03:24:33 by ivloisy          ###   ########.fr       */
+/*   Created: 2022/01/26 03:39:27 by ivloisy           #+#    #+#             */
+/*   Updated: 2022/01/26 04:06:48 by ivloisy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ICHARACTER_HPP
-# define ICHARACTER_HPP
+#ifndef MATERIASOURCE_HPP
+# define MATERIASOURCE_HPP
 
-# include "AMateria.hpp"
+# include "IMateriaSource.hpp"
 
-class	AMateria;
-
-class	ICharacter
+class	MateriaSource : public IMateriaSource
 {
+	private:
+		AMateria	*_slot[4];
+
 	public:
-		virtual ~ICharacter() {}
-		virtual std::string const	&getName() const = 0;
-		virtual void				equip(AMateria *m) = 0;
-		virtual void				unequip(int idx) = 0;
-		virtual void				use(int idx, ICharacter &target) = 0;
+		MateriaSource();
+		virtual ~MateriaSource();
+		MateriaSource(MateriaSource const &src);
+		MateriaSource	&operator=(MateriaSource const &rhs);
 };
 
 #endif
