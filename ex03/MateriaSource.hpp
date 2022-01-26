@@ -6,7 +6,7 @@
 /*   By: ivloisy <ivloisy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 03:39:27 by ivloisy           #+#    #+#             */
-/*   Updated: 2022/01/26 04:06:48 by ivloisy          ###   ########.fr       */
+/*   Updated: 2022/01/26 11:16:31 by ivloisy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ class	MateriaSource : public IMateriaSource
 		virtual ~MateriaSource();
 		MateriaSource(MateriaSource const &src);
 		MateriaSource	&operator=(MateriaSource const &rhs);
+		void			learnMateria(AMateria *);
+		AMateria		*createMateria(std::string const &type);
 };
 
 #endif

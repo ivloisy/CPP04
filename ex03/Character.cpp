@@ -6,7 +6,7 @@
 /*   By: ivloisy <ivloisy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 17:16:02 by ivloisy           #+#    #+#             */
-/*   Updated: 2022/01/26 03:24:13 by ivloisy          ###   ########.fr       */
+/*   Updated: 2022/01/26 14:09:10 by ivloisy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,8 @@ std::string const	&Character::getName() const
 
 void	Character::equip(AMateria *m)
 {
+	if (m == NULL)
+		return ;
 	for (int i = 0; i < 4; i++)
 	{
 		if (_slot[i] == NULL)
@@ -105,5 +107,28 @@ void	Character::use(int idx, ICharacter &target)
 {
 	if (idx >= 0 && idx < 4 && _slot[idx])
 		_slot[idx]->use(target);
+	else
+		std::cout << "Wrong index called" << std::endl;
 	return ;
+}
+
+void	Character::printSlots() const
+{
+	std::cout<< getName() << "'s inventor at " << this->_slot << ":" << std::endl;
+	for (int i = 0; i < 4; i++)
+	{
+		if (_slot[i] != NULL)
+			std::cout << "slot " << i << ": " << _slot[i]->getType() << std::endl;
+		else
+			std::cout << "slot " << i << ": " << std::endl;
+	}
+	return ;
+}
+
+AMateria	*Character::getSlots(int idx) const
+{
+	if (idx >= 0 && idx < 4 && _slot[idx] != NULL)
+		return this->_slot[idx];
+	else
+		return NULL;
 }

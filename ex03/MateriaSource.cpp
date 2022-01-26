@@ -6,7 +6,7 @@
 /*   By: ivloisy <ivloisy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 03:47:44 by ivloisy           #+#    #+#             */
-/*   Updated: 2022/01/26 04:14:56 by ivloisy          ###   ########.fr       */
+/*   Updated: 2022/01/26 11:47:51 by ivloisy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,34 @@ MateriaSource	&MateriaSource::operator=(const MateriaSource &rhs)
 		}
 	}
 	return *this;
+}
+
+void    MateriaSource::learnMateria(AMateria *m)
+{
+    for (int i = 0; i < 4; i++)
+	{
+		if (_slot[i] == NULL)
+		{
+			_slot[i] = m;
+			std::cout << "MateriaSource learns " << m->getType() << std::endl;
+			return ;
+		}
+	}
+	delete m;
+	std::cout << "MateriaSource's inventory is full" << std::endl;
+    return ;
+}
+
+AMateria    *MateriaSource::createMateria(std::string const &type)
+{
+	for (int i = 0; i < 4; i++)
+	{
+		if (_slot[i] != NULL && _slot[i]->getType() == type)
+        {
+			std::cout << "MateriaSource creates " << type << std::endl;
+			return (_slot[i]->clone());
+        }
+	}
+    std::cout << "MateriaSource has not learn " << type << std::endl;
+	return NULL;
 }

@@ -6,7 +6,7 @@
 /*   By: ivloisy <ivloisy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 17:06:24 by ivloisy           #+#    #+#             */
-/*   Updated: 2022/01/26 03:24:58 by ivloisy          ###   ########.fr       */
+/*   Updated: 2022/01/26 14:08:23 by ivloisy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ class Character : public ICharacter
 		void				equip(AMateria *m);
 		void				unequip(int idx);
 		void				use(int idx, ICharacter &target);
+		void				printSlots() const;
+		AMateria			*getSlots(int idx) const;
 };
 
 #endif
